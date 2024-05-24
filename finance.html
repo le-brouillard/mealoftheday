@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTD :: Finance</title>
+
+    <link rel="stylesheet" href="basicstyle.css">
+    <style>
+        .overall{
+            font-family: 'omyu_pretty', sans-serif;}
+        select {
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 18px;
+            border: 1px solid pink;
+            border-radius: 20px;
+            height: 30px;
+        }
+        #moneygraph {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overall">
+        <a href="index.html"><img src="home.png" alt="home" style="width: 40px; float: right;"></a>
+        
+        <h1 style="font-size: 40px;">이 달의 소비 현황</h1>
+        <label for="mealtype" style="font-size: 18px;">카테고리 선택</label>
+        <select id="mealtype" name="mealtype">
+            <option value="all">전체 보기</option>
+            <option value="A">한식</option>
+            <option value="B">양식</option>
+            <option value="C">중식</option>
+            <option value="D">일식</option>
+            <option value="E">분식</option>
+            <option value="F">디저트</option>
+            <option value="G">기타</option>
+        </select>
+        <br><br>
+        <canvas id="moneygraph" width="500" height="430"></canvas>
+    </div>
+
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js">
+    </script>
+    
+    <script>
+        const moneyChart = document.getElementById('moneygraph').getContext('2d');
+        const moneygraph = new Chart(moneyChart, {
+            type: "pie",
+            data: {
+                labels: ['한식', '양식', '중식', '일식', '분식', '디저트', '기타'],
+                datasets: [{
+                    data: [60, 30, 10, 20, 60, 100, 10],
+                    backgroundColor: ['mistyrose', 'pink', 'hotpink', 'deeppink', 'rgb(255, 100, 160)', 'rgb(255, 159, 188)', 'lavenderblush'],
+                    borderColor: ['white'],
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Current Spendings'
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

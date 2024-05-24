@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>diagram</title>
+
+    <link rel="stylesheet" href="basicstyle.css">
+</head>
+<body>
+    <div class="overall" style="width: 1000px;">
+        <h1 style="font-family: 'MoveSans-Bold', sans-serif; text-align: center;">Not updated yet</h1>
+        <br>
+
+        <div style="text-align: center; font-family: 'MoveSans-Bold', sans-serif;">
+            You'll be back to home menu in...
+            <div id="countdown" style=" display: inline-block;"></div>
+        </div><br><br><br>
+
+        <img src="image4.png" alt="working" style="display: block; margin: auto; width: 200px;">
+        <br>
+        <div style="text-align: center; font-family: 'omyu_pretty', sans-serif;">we are working on it!<br><br>
+            hope to see you soon.</div>
+        <br><br><br>
+
+        
+
+        <div id="footer" style="font-size: 15px;">
+            icon credits :: <a href="https://kr.freepik.com/icon/diy_4660796#fromView=search& \
+            page=1&position=50&uuid=c43dcd13-e03e-4068-b760-736287eab20f">freepik</a>
+
+            
+        </div>
+    </div>
+    
+    <script>
+        setTimeout(backToHome, 10000);
+
+        function backToHome(){
+            location.href = "index.html";
+        }
+
+        const x = setInterval(myCountdown, 1000);
+        time = 10;
+        function myCountdown(){
+            document.getElementById("countdown").innerHTML = time;
+            time -= 1;
+
+            if (time<0){
+                clearInterval(x);}
+        }
+
+    </script>
+</body>
+</html>

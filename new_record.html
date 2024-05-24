@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTD :: New record</title>
+
+    <link rel="stylesheet" href="basicstyle.css">
+    <style>
+        input, select, button {
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 18px;
+            margin-left: 10px;
+            width: 110px; height: 30px;
+            border: 1px solid pink;
+            border-radius: 5px;
+            background-color: aliceblue;
+        }
+        button:hover, select:hover {
+            cursor: pointer;
+        }
+        form {
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overall" style="text-align: center; width: 400px; margin: 10px;">
+        <h1 style="font-family: 'MoveSans-Bold', sans-serif; margin: 0px 50px;"> : New Dish :</h1>
+        <form>
+            <label for="date" min="2010-01-01" max="2025-01-01">날짜 </label>
+            <input type="date" id="date" name="date" required>
+            <br><br>
+            <label for="mealname">메뉴명 </label>
+            <input type="text" id="mealname" name="mealname" required>
+            <br><br>
+            <label for="mealtime">식사 시간 </label>
+            <select id="mealtime" name="mealtime" required>
+                <option>==선택==</option>
+                <option value="breakfast">아침</option>
+                <option value="lunch">점심</option>
+                <option value="dinner">저녁</option>
+                <option value="treat">간식</option>
+                <option value="night">야식</option>
+            </select> <br><br>
+            <div style="border-top: 1px solid pink; padding: 20px 0px;">:: 상세 사항</div>
+            <label for="price">가격 </label>
+            &nbsp;\<input type="number" id="price" name="price" style="margin-left: 5px;">
+            <br><br>
+            <label for="mealtype">분류 </label>
+            <select id="mealtype" name="mealtype">
+                <option>==선택==</option>
+                <option value="A">한식</option>
+                <option value="B">양식</option>
+                <option value="C">중식</option>
+                <option value="D">일식</option>
+                <option value="E">분식</option>
+                <option value="F">디저트</option>
+                <option value="G">기타</option>
+            </select>
+            <br><br>
+            <label for="calorie">칼로리 </label>
+            <input type="number" id="calorie" name="calorie"> kcal
+            <br><br>
+            <label for="nutrient">주 영양소 </label>
+            <select id="nutrient" name="nutrient">
+                <option>==선택==</option>
+                <option value="carbohydrate">탄수화물</option>
+                <option value="protein">단백질</option>
+                <option value="fat">지방</option>
+            </select>
+            <br><br>
+            <button type="submit" onsubmit="newRecord();" style="width: 50px; height: 30px;">등록</button>
+        </form>
+        <br>
+        <button onclick="window.close()" style="width: 50px; height: 30px; float: right; background-color: lightgray;">닫기</button>
+
+    </div>
+    
+    <script src="record.js"></script>
+    <script>
+        document.getElementById('date').value= new Date().toISOString().slice(0, 10);
+    </script>
+
+</body>
+</html>

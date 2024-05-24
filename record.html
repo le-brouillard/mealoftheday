@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTD :: Calendar</title>
+    
+    <link rel="stylesheet" href="basicstyle.css">
+    
+    <style>
+        .overall{
+            font-family: 'omyu_pretty', sans-serif;}
+        input{
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 18px; height: 30px;
+        }
+        button{
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 18px; height: 30px;
+            background-color: white;
+            border: 1px solid pink;
+            border-radius: 50px;
+            margin: 0px 0px 5px 5px;
+            cursor: pointer;
+        }
+        td.cal{
+            text-align: center;
+            border: 1px solid black;
+            padding:20px 20px;
+        }
+        table, tr, td {
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+        .cDay {
+            display: block;
+            padding: 10px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="overall">
+        
+        <!--뒤로가기 버튼-->
+        <a href="index.html"><img src="home.png" alt="home" style="width: 40px; float: right;"></a>
+        <!--
+            <label for="datetype" style="font-size: 18px;">열람할 형식 선택</label>
+        <select id="datetype" name="datetype">
+            <option value="monthly">monthly</option>
+            <option value="yearly">yearly</option>
+            <option value="weekly">weekly</option>
+            <option value="daily">daily</option>
+        </select>
+        <button type="submit">결정</button>
+        <br>
+        -->
+
+        <form>
+            <label for="month1" style="font-size: 18px;" value="2024-02">달 선택하기 </label>
+            <input type="month" id="month1" name="month1">
+            <button type="submit">결정</button>
+        </form>
+        
+
+        <br><p style="border-bottom: 1px solid pink; margin-top: 0px;"></p><br>
+        <div id="month" style="display: inline; font-family: 'MoveSans-Bold'; font-size: 40px; margin-right: 315px;"></div>
+        click the date to add
+
+        <div id="calendar"></div>
+
+    </div>
+    
+
+    <script src="record.js"></script>
+    <script src="record_cal copy.js"></script>
+    <script>
+        function openCenter(page="new_record.html", win="new_record", w=700, h=670){
+            let left = (screen.availWidth - w) / 2;
+            let top1 = (screen.availHeight - h) / 2;
+            let opt = "left="+left+", top="+top1+", width="+w+", height="+h;
+            window.open(page, win, opt);
+        }
+
+        document.getElementById('month1').value= new Date().toISOString().slice(0, 7);
+        
+    </script>
+</body>
+</html>

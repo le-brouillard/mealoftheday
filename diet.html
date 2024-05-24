@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTD :: Diet</title>
+
+    <link rel="stylesheet" href="basicstyle.css">
+    <style>
+        .overall{
+            font-family: 'omyu_pretty', sans-serif;}
+        #dietgraph {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overall">
+        <a href="index.html"><img src="home.png" alt="home" style="width: 40px; float: right;"></a>
+        
+        <h1 style="font-size: 40px;">이 달의 영양 균형</h1>
+        <br>
+        <canvas id="dietgraph" width="500" height="430"></canvas>
+    </div>
+
+
+
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js">
+    </script>
+    
+    <script>
+        const dietChart = document.getElementById('dietgraph').getContext('2d');
+        const dietgraph = new Chart(dietChart, {
+            type: "pie",
+            data: {
+                labels: ['탄수화물', '단백질', '지방'],
+                datasets: [{
+                    data: [30, 30, 30],
+                    backgroundColor: ['pink', 'hotpink', 'deeppink'],
+                    borderColor: ['white'],
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Current Nutrition'
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
