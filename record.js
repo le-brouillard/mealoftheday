@@ -38,20 +38,23 @@ function newRecord(){
         
 }
 
-const record = {
-    oMark: [],   //캘린더에 색상 표시
-    oName: [],   //메뉴 이름
-    oTime: [],   //식사 시간
-    oPrice: [],  //가격
-    oType: []    //영양 종류
-};
-for (let i=0; i<31; i++){
-    record.oMark[i]=0;
-    record.oName[i]="";
-    record.oTime[i]=0;
-    record.oPrice[i]=0;
-    record.oType[i]="";
-}
+let check = localStorage.getItem('datas');
+if(check===false){
+    const record = {
+        oMark: [],   //캘린더에 색상 표시
+        oName: [],   //메뉴 이름
+        oTime: [],   //식사 시간
+        oPrice: [],  //가격
+        oType: []    //영양 종류
+    };
+    for (let i=0; i<31; i++){
+        record.oMark[i]=0;
+        record.oName[i]="";
+        record.oTime[i]=0;
+        record.oPrice[i]=0;
+        record.oType[i]="";
+    }
 
-const record_data = JSON.stringify(record);
-window.localStorage.setItem('datas', record_data);
+    const record_data = JSON.stringify(record);
+    window.localStorage.setItem('datas', record_data);
+}
